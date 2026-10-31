@@ -44,6 +44,9 @@ requête reçue dans `lab/webhook/received.jsonl`.
 
 - `data/` : l'inventaire des instances de l'équipe (`instances.csv`) et des journaux
   d'erreurs de SQL Server (`errorlog/`), repris du niveau 1.
+- `src/PachaOps/` : le module de l'équipe, à la version 0.1.0 au départ du cours, sans test,
+  tel qu'il circule de poste en poste depuis le niveau 1. Le cours le teste, le corrige et le
+  publie.
 - `host/` : l'image de l'hôte distant et du serveur de webhook (Ubuntu 24.04, OpenSSH,
   PowerShell 7.6.9).
 - `setup/` : l'installation du labo, la création des fichiers de sauvegarde factices
