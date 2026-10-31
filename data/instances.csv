@@ -1,0 +1,7 @@
+Name,SqlInstance,Environment,Owner,BackupPath
+sql1,"localhost,14533",Production,planning,/var/opt/mssql/backup
+sql2,"localhost,14534",Production,planning,/var/opt/mssql/backup
+compta01,"compta01.pachadata.example,1433",Production,finance,\\backup01.pachadata.example\sql\compta01
+elearn01,"elearn01.pachadata.example,1433",Production,elearning,\\backup01.pachadata.example\sql\elearn01
+recette01,"recette01.pachadata.example,1433",Test,planning,\\backup01.pachadata.example\sql\recette01
+dev01,"dev01.pachadata.example,1433",Development,dev,\\backup01.pachadata.example\sql\dev01

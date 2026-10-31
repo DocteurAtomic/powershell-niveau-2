@@ -1,0 +1,6 @@
+# PowerShell remoting over SSH: the subsystem that Invoke-Command -HostName asks for.
+Subsystem powershell /opt/pwsh/pwsh -sshs -NoLogo -NoProfile
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+PermitRootLogin no
+AuthorizedKeysFile /srv/ssh/authorized_keys

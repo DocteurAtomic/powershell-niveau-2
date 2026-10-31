@@ -1,0 +1,77 @@
+# Lab of the course: two SQL Server 2025 Developer instances, the remote host of module 8 and
+# the webhook test server of module 9.
+# Start it and restore the database with: pwsh ./setup/install.ps1
+# sql1 holds PachadataTraining; sql2 starts empty. Both get a database DBA from install.ps1.
+# Both instances share the volume mounted on /var/opt/mssql/backup, so a backup taken on one
+# can be restored on the other.
+services:
+  sql1:
+    image: mcr.microsoft.com/mssql/server:2025-CU7-ubuntu-24.04
+    container_name: pwshcourse
+    hostname: sql1
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      MSSQL_AGENT_ENABLED: "true"
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:-Course-2026!lab}
+    ports:
+      - "127.0.0.1:${SQL1PORT:-14533}:1433"
+    mem_limit: 3g
+    cpus: 2
+    volumes:
+      - sql1data:/var/opt/mssql
+      - backups:/var/opt/mssql/backup
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "${MSSQL_SA_PASSWORD:-Course-2026!lab}", "-C", "-Q", "SELECT 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  sql2:
+    image: mcr.microsoft.com/mssql/server:2025-CU7-ubuntu-24.04
+    container_name: pwshcourse-b
+    hostname: sql2
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      MSSQL_AGENT_ENABLED: "true"
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:-Course-2026!lab}
+    ports:
+      - "127.0.0.1:${SQL2PORT:-14534}:1433"
+    mem_limit: 2g
+    cpus: 1
+    volumes:
+      - sql2data:/var/opt/mssql
+      - backups:/var/opt/mssql/backup
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "${MSSQL_SA_PASSWORD:-Course-2026!lab}", "-C", "-Q", "SELECT 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  host:
+    build: ./host
+    image: pwshcourse-host:7.6.9
+    container_name: pwshcourse-host
+    hostname: backup01
+    command: ["ssh"]
+    ports:
+      - "127.0.0.1:${HOSTPORT:-14535}:22"
+    volumes:
+      # The public key of the student (install.ps1), and the backup share of the team.
+      - ./lab/ssh:/srv/ssh:ro,z
+      - ./lab/backups:/srv/backups:z
+  webhook:
+    build: ./host
+    image: pwshcourse-host:7.6.9
+    container_name: pwshcourse-webhook
+    command: ["webhook"]
+    depends_on:
+      - host
+    ports:
+      - "127.0.0.1:${WEBHOOKPORT:-14580}:8080"
+    volumes:
+      # Every request received, one JSON line each, read by the exercise checks.
+      - ./lab/webhook:/srv/webhook:z
+volumes:
+  sql1data:
+  sql2data:
+  backups:

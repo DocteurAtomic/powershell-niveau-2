@@ -1,0 +1,21 @@
+name: check
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PowerShell 7.6.9
+        run: |
+          curl -fsSL -o pwsh.tar.gz https://github.com/PowerShell/PowerShell/releases/download/v7.6.9/powershell-7.6.9-linux-x64.tar.gz
+          echo "1da6d6d6035d651f20e70ddee7c4c15ac6ab8b9fb40ee92240d91263f28a884b  pwsh.tar.gz" | sha256sum -c
+          mkdir -p "$HOME/pwsh" && tar xzf pwsh.tar.gz -C "$HOME/pwsh" && chmod +x "$HOME/pwsh/pwsh"
+          echo "$HOME/pwsh" >> "$GITHUB_PATH"
+      - name: Install the lab
+        run: pwsh -NoProfile -File ./setup/install.ps1   # ends with setup/test-lab.ps1 and setup/test-host.ps1
+      - name: Run the demos and check the exercise solutions
+        run: pwsh -NoProfile -File ./setup/run-checks.ps1

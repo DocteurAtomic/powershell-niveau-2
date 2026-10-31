@@ -1,0 +1,2 @@
+data/errorlog/* -text
+*.ps1 text eol=lf
