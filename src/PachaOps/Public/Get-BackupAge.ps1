@@ -16,7 +16,7 @@ function Get-BackupAge {
     )
     process {
         $age = ($ReferenceDate - $File.LastWriteTimeUtc).TotalDays
-        Write-Host "$($File.Name): $([math]::Round($age, 2)) days"
+        Write-Verbose "$($File.Name): $([math]::Round($age, 2)) days"
         $File | Add-Member -NotePropertyName AgeDays -NotePropertyValue ([math]::Round($age, 2)) -Force -PassThru
     }
 }
