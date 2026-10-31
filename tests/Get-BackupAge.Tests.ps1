@@ -37,6 +37,14 @@ Describe 'Get-BackupAge' {
         $local = $reference.ToLocalTime()
         (Get-BackupAge -File $file -ReferenceDate $local).AgeDays | Should-Be 10
     }
+
+    It 'takes the reference date from Get-Date when none is given' {
+        # The scripts of the team call it this way. Like the real Get-Date, the mock returns a
+        # local time; the mock is injected in PachaOps, where Get-BackupAge calls Get-Date.
+        $file.LastWriteTimeUtc = [datetime]::new(2026, 10, 23, 8, 0, 0, [System.DateTimeKind]::Utc)
+        Mock Get-Date -ModuleName PachaOps { $reference.ToLocalTime() }
+        (Get-BackupAge -File $file).AgeDays | Should-Be 10
+    }
 }
 
 AfterAll {

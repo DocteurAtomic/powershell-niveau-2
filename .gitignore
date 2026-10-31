@@ -1,3 +1,5 @@
 setup/backup/
 setup/community/
 lab/
+# Written by demos/module_03/03-coverage.ps1.
+coverage.xml
