@@ -21,7 +21,7 @@ function Get-MorningReport {
     foreach ($instance in Import-Csv -Path $InventoryPath) {
         Write-Host "Checking $($instance.Name)..."
         try {
-            $server = Connect-DbaInstance -SqlInstance $instance.SqlInstance -SqlCredential $SqlCredential -EnableException
+            $server = Connect-DbaInstance -SqlInstance $instance.SqlInstance -SqlCredential $SqlCredential
         }
         catch {
             [pscustomobject]@{
