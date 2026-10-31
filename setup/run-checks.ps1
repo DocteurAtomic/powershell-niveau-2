@@ -12,7 +12,9 @@ Set-Location (Join-Path $PSScriptRoot '..')
 $failed = 0
 foreach ($script in Get-ChildItem demos -Recurse -Filter *.ps1 -ErrorAction SilentlyContinue | Sort-Object FullName) {
     if ((Get-Content $script -TotalCount 5) -match 'ci: skip') { "skip  $($script.FullName)"; continue }
-    & pwsh -NoProfile -File $script.FullName *> $null
+    # Errors are made terminating: pwsh -File returns 0 after a script that only wrote one.
+    $path = $script.FullName -replace "'", "''"
+    & pwsh -NoProfile -Command "`$ErrorActionPreference = 'Stop'; & '$path'; if (-not `$?) { exit 1 }" *> $null
     if ($LASTEXITCODE -ne 0) { "FAIL  $($script.FullName) (exit $LASTEXITCODE)"; $failed++ } else { "ok    $($script.FullName)" }
 }
 foreach ($check in Get-ChildItem exercises -Recurse -Filter check.ps1 -ErrorAction SilentlyContinue | Sort-Object FullName) {
