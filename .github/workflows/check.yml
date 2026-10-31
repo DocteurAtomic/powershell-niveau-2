@@ -17,5 +17,11 @@ jobs:
           echo "$HOME/pwsh" >> "$GITHUB_PATH"
       - name: Install the lab
         run: pwsh -NoProfile -File ./setup/install.ps1   # ends with setup/test-lab.ps1 and setup/test-host.ps1
+      - name: Check the lab, in its own step
+        # An install that stops at a prompt exits with code 0: these checks must not depend on it.
+        run: |
+          pwsh -NoProfile -File ./setup/test-lab.ps1
+          pwsh -NoProfile -File ./setup/test-host.ps1
+          pwsh -NoProfile -Command "if ((Get-Secret -Vault PachaOps -Name sql-lab).UserName -ne 'sa') { exit 1 }; 'ok    vault PachaOps'"
       - name: Run the demos and check the exercise solutions
         run: pwsh -NoProfile -File ./setup/run-checks.ps1

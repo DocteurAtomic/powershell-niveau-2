@@ -158,8 +158,15 @@ if (-not $hostKey) { throw 'The remote host pwshcourse-host does not answer on p
 Add-Content -Path $knownHosts -Value ($hostKey -replace '^\[127\.0\.0\.1\]', '[localhost]')
 
 # The vault of level 1, module 9, without a password, so that a scheduled script can read it.
+# Set-SecretStoreConfiguration would ask for a password to create the store, and without a
+# console that prompt ends the script with exit code 0. Reset-SecretStore creates it without
+# asking, but erases an existing store: it only runs when there is none.
+$store = if ($IsWindows) { Join-Path $env:LOCALAPPDATA 'Microsoft/PowerShell/secretmanagement/localstore' }
+         else { Join-Path $HOME '.secretmanagement/localstore' }
+if (-not (Test-Path $store)) {
+    Reset-SecretStore -Authentication None -Interaction None -Scope CurrentUser -Force -WarningAction SilentlyContinue
+}
 if (-not (Get-SecretVault -Name PachaOps -ErrorAction SilentlyContinue)) {
-    Set-SecretStoreConfiguration -Authentication None -Interaction None -Scope CurrentUser -Confirm:$false
     Register-SecretVault -Name PachaOps -ModuleName Microsoft.PowerShell.SecretStore
 }
 if (-not (Get-SecretInfo -Vault PachaOps -Name sql-lab)) {
