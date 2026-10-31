@@ -3,3 +3,5 @@ setup/community/
 lab/
 # Written by demos/module_03/03-coverage.ps1.
 coverage.xml
+# Written by build.ps1 (module 4): the folder the team publishes.
+out/

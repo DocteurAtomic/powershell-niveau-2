@@ -12,7 +12,7 @@
 RootModule = 'PachaOps.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.1.0'
+ModuleVersion = '0.2.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -30,7 +30,7 @@ CompanyName = 'Unknown'
 Copyright = '(c) PachaData operations team. All rights reserved.'
 
 # Description of the functionality provided by this module
-# Description = ''
+Description = 'The scripts of the PachaData operations team: backup age and retention, error log summary, morning report.'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''
@@ -76,7 +76,7 @@ FunctionsToExport = 'Get-BackupAge', 'Remove-OldBackup', 'Get-ErrorLogSummary',
 CmdletsToExport = @()
 
 # Variables to export from this module
-# VariablesToExport = @()
+VariablesToExport = '*'
 
 # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
 AliasesToExport = @()
@@ -108,7 +108,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        # ReleaseNotes = ''
+        ReleaseNotes = '0.2.0: Get-BackupAge computes the age between two UTC times; it was off by the UTC offset of the workstation. See CHANGELOG.md.'
 
         # Prerelease string of this module
         # Prerelease = ''
@@ -120,6 +120,7 @@ PrivateData = @{
         # ExternalModuleDependencies = @()
 
     } # End of PSData hashtable
+
 
 } # End of PrivateData hashtable
 

@@ -47,6 +47,10 @@ requête reçue dans `lab/webhook/received.jsonl`.
 - `src/PachaOps/` : le module de l'équipe, à la version 0.1.0 au départ du cours, sans test,
   tel qu'il circule de poste en poste depuis le niveau 1. Le cours le teste, le corrige et le
   publie.
+- `build.ps1` : construit `out/PachaOps`, le seul dossier que l'équipe publie, et le publie
+  dans le dépôt de fichiers de l'équipe (`lab/repository`) sans jamais remplacer une version
+  déjà publiée (module 4). `src/PachaOps/CHANGELOG.md` est l'historique du module ; le
+  `CHANGELOG.md` de la racine liste les corrections du cours.
 - `host/` : l'image de l'hôte distant et du serveur de webhook (Ubuntu 24.04, OpenSSH,
   PowerShell 7.6.9).
 - `setup/` : l'installation du labo, la création des fichiers de sauvegarde factices
