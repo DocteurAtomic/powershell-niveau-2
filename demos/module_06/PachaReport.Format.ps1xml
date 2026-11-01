@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Clip 6.3: the default view of the objects named PachaOps.InstanceStatus, a table of four
+     columns. Load it with:
+       Update-FormatData -PrependPath ./demos/module_06/PachaReport.Format.ps1xml -->
+<Configuration>
+  <ViewDefinitions>
+    <View>
+      <Name>PachaOps.InstanceStatus</Name>
+      <ViewSelectedBy>
+        <TypeName>PachaOps.InstanceStatus</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>Instance</Label><Width>10</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Severity</Label><Width>9</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Databases</Label><Width>9</Width><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>WithoutRecentFull</Label><Width>17</Width><Alignment>Right</Alignment></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>Instance</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Severity</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Databases</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>WithoutRecentFull</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+  </ViewDefinitions>
+</Configuration>
