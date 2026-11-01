@@ -95,6 +95,19 @@ foreach ($tool in $community) {
         throw "Checksum mismatch for $path : delete it and run this script again."
     }
 }
+# dbatools 2.9.1 only takes an archive of the Maintenance Solution whose folder is named
+# sql-server-maintenance-solution-main, and silently installs its own copy otherwise; the
+# archive of a commit is named after the commit. ola-main.zip is the same files, renamed.
+$olaMain = 'setup/community/ola-main.zip'
+if (-not (Test-Path $olaMain)) {
+    $work = Join-Path ([System.IO.Path]::GetTempPath()) "ola-$([guid]::NewGuid())"
+    try {
+        Expand-Archive -LiteralPath setup/community/ola.zip -DestinationPath $work
+        $folder = Rename-Item -Path (Get-ChildItem -Path $work -Directory).FullName -NewName 'sql-server-maintenance-solution-main' -PassThru
+        Compress-Archive -Path $folder.FullName -DestinationPath $olaMain
+    }
+    finally { Remove-Item -Path $work -Recurse -Force -ErrorAction SilentlyContinue }
+}
 
 # The key of the student for the remote host (module 8). The folder is readable by the
 # container's sshd, which reads authorized_keys as the user student.
