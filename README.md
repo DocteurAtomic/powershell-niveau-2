@@ -1,5 +1,7 @@
 # PowerShell, niveau 2
 
+[![test](https://github.com/DocteurAtomic/powershell-niveau-2/actions/workflows/test.yml/badge.svg)](https://github.com/DocteurAtomic/powershell-niveau-2/actions/workflows/test.yml)
+
 Labo, données, démonstrations et exercices du cours en ligne
 [« PowerShell, niveau 2 »](https://www.docteuratomic.com) de Docteur Atomic, la suite du
 [niveau 1](https://github.com/DocteurAtomic/powershell-niveau-1).
@@ -51,6 +53,10 @@ requête reçue dans `lab/webhook/received.jsonl`.
   dans le dépôt de fichiers de l'équipe (`lab/repository`) sans jamais remplacer une version
   déjà publiée (module 4). `src/PachaOps/CHANGELOG.md` est l'historique du module ; le
   `CHANGELOG.md` de la racine liste les corrections du cours.
+- `tests/` : les tests Pester de l'équipe (Pester 6.2.0), qui tournent sans SQL Server.
+- `.github/workflows/` : `test.yml`, le workflow de l'équipe écrit au module 5, lance les tests
+  de `tests/` sous Linux et sous Windows à chaque modification, sans le labo ;
+  `check.yml`, le contrôle du cours, monte le labo et lance `setup/run-checks.ps1`.
 - `host/` : l'image de l'hôte distant et du serveur de webhook (Ubuntu 24.04, OpenSSH,
   PowerShell 7.6.9).
 - `setup/` : l'installation du labo, la création des fichiers de sauvegarde factices

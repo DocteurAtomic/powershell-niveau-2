@@ -5,3 +5,5 @@ lab/
 coverage.xml
 # Written by build.ps1 (module 4): the folder the team publishes.
 out/
+# Written by Invoke-Pester -CI (module 5) and kept by the workflow test.yml as an artifact.
+testResults.xml

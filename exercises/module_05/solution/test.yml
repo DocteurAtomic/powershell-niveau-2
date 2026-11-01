@@ -1,0 +1,61 @@
+# Solution of the exercise of module 5, to copy to .github/workflows/test.yml: the workflow of
+# the module, plus the job analyze, which runs ./analyze.ps1 and fails the run on any finding
+# of PSScriptAnalyzer in src.
+name: test
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      # Both systems report, even when one of them fails.
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v7
+      - name: Show the runner
+        # The PowerShell of the runner, not a fixed one: the run says which version it was.
+        run: |
+          [pscustomobject]@{
+              PowerShell = "$($PSVersionTable.PSVersion)"
+              TimeZone   = [System.TimeZoneInfo]::Local.Id
+              System     = [System.Runtime.InteropServices.RuntimeInformation]::OSDescription
+          } | Format-List
+          if ($PSVersionTable.PSVersion -lt [version] '7.4') {
+              throw "Pester 6.2.0 needs PowerShell 7.4 or later, and this runner has $($PSVersionTable.PSVersion)."
+          }
+      - name: Install the modules at the versions of the team
+        run: |
+          Install-PSResource -Name Pester -Version 6.2.0 -Repository PSGallery -TrustRepository
+          Install-PSResource -Name dbatools -Version 2.9.1 -Repository PSGallery -TrustRepository
+      - name: Run the tests
+        # -CI writes testResults.xml and exits with the number of failed tests.
+        run: |
+          Import-Module -Name Pester -RequiredVersion 6.2.0
+          Invoke-Pester -Path tests -CI
+      - name: Keep the test results
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: test-results-${{ matrix.os }}
+          path: testResults.xml
+  analyze:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install PSScriptAnalyzer at the version of the team
+        run: Install-PSResource -Name PSScriptAnalyzer -Version 1.25.0 -Repository PSGallery -TrustRepository
+      - name: Analyze the module
+        # Exits with 1 on any finding, with the settings of the team.
+        run: ./analyze.ps1

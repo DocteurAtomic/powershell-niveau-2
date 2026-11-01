@@ -1,0 +1,49 @@
+# The tests of the team (module 5): on every push and every pull request, the Pester tests of
+# tests/ run on Linux and on Windows. They need no SQL Server: the tests mock dbatools. The lab
+# of the course has its own workflow, check.yml.
+name: test
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      # Both systems report, even when one of them fails.
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v7
+      - name: Show the runner
+        # The PowerShell of the runner, not a fixed one: the run says which version it was.
+        run: |
+          [pscustomobject]@{
+              PowerShell = "$($PSVersionTable.PSVersion)"
+              TimeZone   = [System.TimeZoneInfo]::Local.Id
+              System     = [System.Runtime.InteropServices.RuntimeInformation]::OSDescription
+          } | Format-List
+          if ($PSVersionTable.PSVersion -lt [version] '7.4') {
+              throw "Pester 6.2.0 needs PowerShell 7.4 or later, and this runner has $($PSVersionTable.PSVersion)."
+          }
+      - name: Install the modules at the versions of the team
+        run: |
+          Install-PSResource -Name Pester -Version 6.2.0 -Repository PSGallery -TrustRepository
+          Install-PSResource -Name dbatools -Version 2.9.1 -Repository PSGallery -TrustRepository
+      - name: Run the tests
+        # -CI writes testResults.xml and exits with the number of failed tests.
+        run: |
+          Import-Module -Name Pester -RequiredVersion 6.2.0
+          Invoke-Pester -Path tests -CI
+      - name: Keep the test results
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: test-results-${{ matrix.os }}
+          path: testResults.xml
