@@ -1,0 +1,18 @@
+[
+  {
+    "Name": "policy.dacallowed",
+    "Value": false
+  },
+  {
+    "Name": "policy.connection.authscheme",
+    "Value": "SQL"
+  },
+  {
+    "Name": "skip.connection.ping",
+    "Value": true
+  },
+  {
+    "Name": "skip.connection.remoting",
+    "Value": true
+  }
+]

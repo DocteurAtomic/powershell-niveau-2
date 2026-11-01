@@ -1,0 +1,18 @@
+[
+  {
+    "Name": "policy.recoverymodel.type",
+    "Value": "Full"
+  },
+  {
+    "Name": "policy.recoverymodel.excludedb",
+    "Value": ["master", "model", "msdb", "tempdb"]
+  },
+  {
+    "Name": "policy.validdbowner.name",
+    "Value": "sa"
+  },
+  {
+    "Name": "policy.validdbowner.excludedb",
+    "Value": ["master", "model", "msdb", "tempdb"]
+  }
+]
