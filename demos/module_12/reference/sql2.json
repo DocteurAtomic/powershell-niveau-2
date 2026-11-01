@@ -1,0 +1,540 @@
+{
+  "SqlInstance": "localhost,14534",
+  "Settings": [
+    {
+      "DisplayName": "access check cache bucket count",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "access check cache quota",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "Ad Hoc Distributed Queries",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "ADR cleaner lock timeout (s)",
+      "ConfiguredValue": 5,
+      "RunningValue": 5
+    },
+    {
+      "DisplayName": "ADR cleaner retry timeout (min)",
+      "ConfiguredValue": 15,
+      "RunningValue": 15
+    },
+    {
+      "DisplayName": "ADR Cleaner Thread Count",
+      "ConfiguredValue": 1,
+      "RunningValue": 1
+    },
+    {
+      "DisplayName": "ADR Preallocation Factor",
+      "ConfiguredValue": 4,
+      "RunningValue": 4
+    },
+    {
+      "DisplayName": "affinity I/O mask",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "affinity mask",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "affinity64 I/O mask",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "affinity64 mask",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "Agent XPs",
+      "ConfiguredValue": 1,
+      "RunningValue": 1
+    },
+    {
+      "DisplayName": "allow filesystem enumeration",
+      "ConfiguredValue": 1,
+      "RunningValue": 1
+    },
+    {
+      "DisplayName": "allow polybase export",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "allow server scoped db credentials",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "allow updates",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "automatic soft-NUMA disabled",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "availability group commit time (ms)",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "backup checksum default",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "backup compression algorithm",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "backup compression default",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "blocked process threshold (s)",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "c2 audit mode",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "clr enabled",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "clr strict security",
+      "ConfiguredValue": 1,
+      "RunningValue": 1
+    },
+    {
+      "DisplayName": "column encryption enclave type",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "common criteria compliance enabled",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "contained database authentication",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "cost threshold for parallelism",
+      "ConfiguredValue": 5,
+      "RunningValue": 5
+    },
+    {
+      "DisplayName": "cross db ownership chaining",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "cursor threshold",
+      "ConfiguredValue": -1,
+      "RunningValue": -1
+    },
+    {
+      "DisplayName": "Data processed daily limit in TB",
+      "ConfiguredValue": 2147483647,
+      "RunningValue": 2147483647
+    },
+    {
+      "DisplayName": "Data processed monthly limit in TB",
+      "ConfiguredValue": 2147483647,
+      "RunningValue": 2147483647
+    },
+    {
+      "DisplayName": "Data processed weekly limit in TB",
+      "ConfiguredValue": 2147483647,
+      "RunningValue": 2147483647
+    },
+    {
+      "DisplayName": "Database Mail XPs",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "default full-text language",
+      "ConfiguredValue": 1033,
+      "RunningValue": 1033
+    },
+    {
+      "DisplayName": "default language",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "default trace enabled",
+      "ConfiguredValue": 1,
+      "RunningValue": 1
+    },
+    {
+      "DisplayName": "disallow results from triggers",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "EKM provider enabled",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "external AI runtimes enabled",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "external rest endpoint enabled",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "external scripts enabled",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "external xtp dll gen util enabled",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "filestream access level",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "fill factor (%)",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "ft crawl bandwidth (max)",
+      "ConfiguredValue": 100,
+      "RunningValue": 100
+    },
+    {
+      "DisplayName": "ft crawl bandwidth (min)",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "ft notify bandwidth (max)",
+      "ConfiguredValue": 100,
+      "RunningValue": 100
+    },
+    {
+      "DisplayName": "ft notify bandwidth (min)",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "hadoop connectivity",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "hardware offload config",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "hardware offload enabled",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "hardware offload mode",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "in-doubt xact resolution",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "index create memory (KB)",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "lightweight pooling",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "locks",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "max degree of parallelism",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "max full-text crawl range",
+      "ConfiguredValue": 4,
+      "RunningValue": 4
+    },
+    {
+      "DisplayName": "max lock manager cache memory (%)",
+      "ConfiguredValue": 20,
+      "RunningValue": 20
+    },
+    {
+      "DisplayName": "max RPC request params (KB)",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "max server memory (MB)",
+      "ConfiguredValue": 1536,
+      "RunningValue": 1536
+    },
+    {
+      "DisplayName": "max server tiered memory (MB)",
+      "ConfiguredValue": 2147483647,
+      "RunningValue": 2147483647
+    },
+    {
+      "DisplayName": "max text repl size (B)",
+      "ConfiguredValue": 65536,
+      "RunningValue": 65536
+    },
+    {
+      "DisplayName": "max UCS send boxcars",
+      "ConfiguredValue": 256,
+      "RunningValue": 256
+    },
+    {
+      "DisplayName": "max worker threads",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "media retention",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "min memory per query (KB)",
+      "ConfiguredValue": 1024,
+      "RunningValue": 1024
+    },
+    {
+      "DisplayName": "min server memory (MB)",
+      "ConfiguredValue": 0,
+      "RunningValue": 16
+    },
+    {
+      "DisplayName": "nested triggers",
+      "ConfiguredValue": 1,
+      "RunningValue": 1
+    },
+    {
+      "DisplayName": "network packet size (B)",
+      "ConfiguredValue": 4096,
+      "RunningValue": 4096
+    },
+    {
+      "DisplayName": "Ole Automation Procedures",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "open objects",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "openrowset auto_create_statistics",
+      "ConfiguredValue": 1,
+      "RunningValue": 1
+    },
+    {
+      "DisplayName": "optimize for ad hoc workloads",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "PH timeout (s)",
+      "ConfiguredValue": 60,
+      "RunningValue": 60
+    },
+    {
+      "DisplayName": "polybase enabled",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "polybase network encryption",
+      "ConfiguredValue": 1,
+      "RunningValue": 1
+    },
+    {
+      "DisplayName": "precompute rank",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "priority boost",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "query governor cost limit",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "query wait (s)",
+      "ConfiguredValue": -1,
+      "RunningValue": -1
+    },
+    {
+      "DisplayName": "recovery interval (min)",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "remote access",
+      "ConfiguredValue": 1,
+      "RunningValue": 1
+    },
+    {
+      "DisplayName": "remote admin connections",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "remote data archive",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "remote login timeout (s)",
+      "ConfiguredValue": 10,
+      "RunningValue": 10
+    },
+    {
+      "DisplayName": "remote proc trans",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "remote query timeout (s)",
+      "ConfiguredValue": 600,
+      "RunningValue": 600
+    },
+    {
+      "DisplayName": "Replication XPs",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "scan for startup procs",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "server trigger recursion",
+      "ConfiguredValue": 1,
+      "RunningValue": 1
+    },
+    {
+      "DisplayName": "set working set size",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "show advanced options",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "SLOG memory quota (%)",
+      "ConfiguredValue": 75,
+      "RunningValue": 75
+    },
+    {
+      "DisplayName": "SMO and DMO XPs",
+      "ConfiguredValue": 1,
+      "RunningValue": 1
+    },
+    {
+      "DisplayName": "suppress recovery model errors",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "tempdb metadata memory-optimized",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "tiered memory enabled",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "transform noise words",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "two digit year cutoff",
+      "ConfiguredValue": 2049,
+      "RunningValue": 2049
+    },
+    {
+      "DisplayName": "user connections",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "user options",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "version high part of SQL Server",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "version low part of SQL Server",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    },
+    {
+      "DisplayName": "xp_cmdshell",
+      "ConfiguredValue": 0,
+      "RunningValue": 0
+    }
+  ]
+}

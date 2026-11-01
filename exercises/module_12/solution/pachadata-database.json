@@ -1,0 +1,10 @@
+{
+  "ExcludeDatabase": ["master", "model", "msdb", "tempdb"],
+  "Options": {
+    "PageVerify": "Checksum",
+    "AutoClose": false,
+    "AutoShrink": false,
+    "AutoCreateStatisticsEnabled": true,
+    "AutoUpdateStatisticsEnabled": true
+  }
+}
