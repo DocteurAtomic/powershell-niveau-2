@@ -1,0 +1,1 @@
+-- 0002: the view dbo.DeploymentSummary, to write (README.md of the exercise).
